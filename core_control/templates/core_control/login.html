@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <section class="d-flex justify-content-center align-items-center w-100 forms" style="height: 100vh;">
+        <div class="form login" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;">
+            <div class="form-content">
+                <header>Login</header>
+                <form id="loginuseraccount">
+                    <div class="field input-field">
+                        <input type="email" id="email" placeholder="Email" class="input">
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" id="password" placeholder="Password" class="password">
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+
+                    <div class="form-link">
+                        <a href="#" class="forgot-pass">Forgot password?</a>
+                    </div>
+
+                    <div class="field button-field">
+                        <button type="submit" id="s-btn">Login</button>
+                        <button class="btn btn-dark w-100" id="spinner" style="display: none;">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="form-link">
+                    <span>Don't have an account? <a href="/aqib-plaltes/sigin " class="link signup-link">Signup</a></span>
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="media-options">
+                <a href="#" class="field google">
+                    <img src="#" alt="" class="google-img">
+                    <span>Login with Google</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#loginuseraccount').submit(function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Gather user input data
+                var formData = {
+                    email: $('#email').val(),
+                    password: $('#password').val(),
+                };
+
+                // Perform client-side validation
+                var isValid = validateFormData(formData);
+                if (!isValid) {
+                    return;
+                }
+
+                // Show spinner and hide button text
+                $('#s-btn').hide();
+                $('#spinner').show();
+
+                // Send AJAX request to server for user login
+                $.ajax({
+                    type: 'POST',
+                    url: '/aqib-plaltes/account/login-user', // Replace with your API endpoint
+                    data: formData,
+                    success: function (response) {
+                        // Assuming response contains user data
+                        var user_data = response.user;
+
+                        // Save user_data to sessionStorage
+                        var userDataString = JSON.stringify(user_data);
+                        sessionStorage.setItem('userData', userDataString);
+
+                        var token = response.user.token.access
+                        
+                        localStorage.setItem('authtoken', token)
+
+                        // Handle successful login
+                        var link_active = localStorage.getItem('activeNav');
+
+
+                        if (link_active === undefined) { // Changed undefined to null
+                           
+                            window.location.href = link_active;
+                        } else {
+                            
+                            window.location.href = '/';
+                        }
+
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle login errors
+                        var errorMessage = xhr.responseJSON ? xhr.responseJSON.message : 'Failed to login';
+                        console.error(errorMessage);
+                        $('#spinner').hide();
+                    },
+                    complete: function () {
+                        // Hide spinner and show button text
+                        $('#spinner').hide();
+                        $('#s-btn').show();
+                    }
+                });
+
+            });
+
+            function validateFormData(formData) {
+                // Basic client-side validation
+                if (!formData.email || !formData.password) {
+                    alert('All fields are required');
+                    return false;
+                }
+
+                // Additional validation rules can be added here
+
+                return true;
+            }
+        });
+    </script>
+</body>
+
+</html>

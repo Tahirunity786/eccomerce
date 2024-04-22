@@ -1,0 +1,259 @@
+{% extends "core_control/base/base.html" %}
+{% load static %}
+{% block optionalcssl %}
+
+<link rel="stylesheet" href="{% static 'css/optimized.css' %}">
+{% endblock optionalcssl %}
+
+{% block title %}My Profile{% endblock title %}
+
+
+{% block content %}
+
+<div class="container mb-5 mt-5">
+    <div class="row mt-4 mb-4 ">
+        <div class="col-lg-3 col-md-3 col-sm-12 bg-light rounded-2 h-100 p-4 mb-4">
+            <h5 class="mb-3">Hello username!</h5>
+            <div class="mb-3">
+                <span class="badge text-bg-success" id="verify"></span>
+            </div>
+            <div class="mb-3">
+                <h5>Manage account</h5>
+                <ul style="list-style: none;">
+                    <li><a href="/aqib-plaltes/user/profile" class="text-decoration-none text-dark">My profile</a></li>
+                    <li><a href="/aqib-plaltes/user/profile/address-book" class="text-decoration-none text-dark">My
+                            Address Book</a></li>
+                </ul>
+            </div>
+            <div class="mb-4">
+                <h5>Orders</h5>
+                <ul style="list-style: none;">
+                    <li><a href="/aqib-plaltes/user/profile/orders" class="text-decoration-none text-dark">My Orders</a>
+                    </li>
+                    <li><a href="/aqib-plaltes/user/profile/order-cancelation" class="text-decoration-none text-dark">My
+                            Cancellations</a></li>
+                    <li><a href="/aqib-plaltes/user/profile/order-return" class="text-decoration-none text-dark">My
+                            Returns</a></li>
+                </ul>
+            </div>
+            <div class="mb-3">
+                <a href="/aqib-plaltes/user/profile/items/saved" class="fs-4 text-decoration-none text-dark">Saved
+                    Items</a>
+
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12 ps-4 pe-4">
+            <h2>My Profile</h2>
+            <div class="row p-4">
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="p-2"
+                        style="box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;">
+                        <h5 class="mb-3">Full name</h5>
+                        <p id="fullname"></p>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="p-2"
+                        style="box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;">
+                        <div class="mb-2">
+                            <p>Email</p>
+                            <p id="username"></p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="p-2"
+                        style="box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;">
+                        <p>Mobile </p>
+                        <p id="phno"></p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row p-4 mb-4">
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="p-2"
+                        style="box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;">
+                        <h5 class="mb-3">Birthday</h5>
+                        <p id="mybirthday"></p>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="p-2"
+                        style="box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;">
+                        <h5 class="mb-3">Gender</h5>
+                        <p id="gender"></p>
+                    </div>
+
+                </div>
+            </div>
+            {% include "core_account/model.html" %}
+            <div class="mt-5 container">
+                <div class="mb-3">
+                    <button class="btn-a rounded-2" style="margin: 0px 0px; padding-left:103px ;padding-right:103px ;"
+                        data-bs-toggle="modal" data-bs-target="#mod1">Edit Profile
+
+                    </button>
+                </div>
+                <div class="mb-3">
+                    <button class="btn-a rounded-2" style="margin: 0px 0px;" data-bs-toggle="modal" data-bs-target="#cngpas">Change Password
+                        
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+$(document).ready(function () {
+    // Retrieve user data from session storage
+    var userData = JSON.parse(sessionStorage.getItem('userData'));
+    
+    if (userData) {
+        // Update Full name
+        $('#fullname').text(userData.full_name);
+
+        // Update Email
+        $('#username').text(userData.email);
+
+        if (userData.mobile_number) {
+            $('#phno').text(userData.mobile_number);
+        } else {
+            $('#phno').text("Add your Phone no");
+        }
+        if (userData.date_of_birth) {
+            $('#mybirthday').text(userData.date_of_birth);
+        } else {
+            $('#mybirthday').text("Add your Birthday");
+        }
+        if (userData.date_of_birth) {
+            $('#mybirthday').text(userData.date_of_birth);
+        } else {
+            $('#mybirthday').text("Add your Birthday");
+        }
+        if (userData.gender) {
+            $('#gender').text(userData.gender);
+        } else {
+            $('#gender').text("Update your gender");
+        }
+        if (userData.is_verified) {
+            
+            $('#verify').removeClass('text-bg-danger').addClass('text-bg-success').text('Account verified');
+        } else {
+            
+            $('#verify').removeClass('text-bg-success').addClass('text-bg-danger').text('Verify your account');
+        }
+        
+
+    }
+});
+$(document).ready(function () {
+    $("#updateme").click(function (event) {
+        event.preventDefault(); // Prevent the default action of following the link
+
+        // Retrieve the authentication token from local storage
+        const authToken = localStorage.getItem("authtoken");
+
+        // Ensure the token is available
+        if (!authToken) {
+            console.error("Authentication token not found in local storage.");
+            return;
+        }
+
+        // Prepare the data to send
+        const userData = {
+            full_name: $('#upfullname').val(),
+            email: $('#upemail').val(),
+            mobile_number: $('#upphno').val(),
+            gender: $('#upgend').val(),
+            date_of_birth: $('#upDOB').val(),
+            // Optionally, include the image file if selected
+        };
+
+        // Construct the FormData object to send files
+        const formData = new FormData();
+        Object.entries(userData).forEach(([key, value]) => {
+            formData.append(key, value);
+        });
+
+        // Append the profile image file, if selected
+        const profileFile = $('#prof')[0].files[0];
+        if (profileFile) {
+            formData.append('pic', profileFile);
+        }
+
+        // Make the AJAX request
+        $.ajax({
+            url: '/aqib-plaltes/account/user/profile/update',
+            type: "POST",
+            data: formData,
+            headers: {
+                "Authorization": `Bearer ${authToken}`
+            },
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                // Handle success response
+                sessionStorage.setItem('userData', JSON.stringify(data));
+                window.location.href = "/aqib-plaltes/user/profile";
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.error("Error:", textStatus, errorThrown);
+            }
+        });
+    });
+});
+function checkPasswordStrength() {
+    var password = document.getElementById('newpass').value;
+    var passwordStrengthElement = document.getElementById('passwordStrength');
+
+    // Regular expressions to check if password contains characters, numerics, and special characters
+    var hasChar = /[a-zA-Z]/.test(password);
+    var hasNumber = /\d/.test(password);
+    var hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    // Check if password length is at least 8 characters
+    var isValidLength = password.length >= 8;
+
+    // Update password strength message based on requirements
+    if (isValidLength && hasChar && hasNumber && hasSpecialChar) {
+        passwordStrengthElement.textContent = 'Strong password';
+        passwordStrengthElement.style.color = 'green';
+    } else {
+        passwordStrengthElement.textContent = 'Weak password: must contain characters, numerics, special characters, and be at least 8 characters long';
+        passwordStrengthElement.style.color = 'red';
+    }
+}
+
+function checkPasswordsMatch() {
+    var newPassword = document.getElementById('newpass').value;
+    var confirmPassword = document.getElementById('confpass').value;
+    var passwordMatchElement = document.getElementById('passwordMatch');
+
+    // Check if passwords match
+    if (newPassword === confirmPassword) {
+        passwordMatchElement.textContent = 'Passwords match';
+        passwordMatchElement.style.color = 'green';
+    } else {
+        passwordMatchElement.textContent = 'Passwords do not match';
+        passwordMatchElement.style.color = 'red';
+    }
+}
+
+
+
+function previewImage(event) {
+    var input = event.target;
+    var reader = new FileReader();
+    reader.onload = function () {
+        var img = document.getElementById('image-preview');
+        img.src = reader.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+}
+{% endblock js %}

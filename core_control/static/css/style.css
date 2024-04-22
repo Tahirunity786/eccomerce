@@ -1,0 +1,264 @@
+@font-face {
+    font-family: Lato;
+    src: url(../font/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: Kanit;
+    src: url(../font/Kanit-Regular.ttf);
+}
+
+* {
+    margin: 0px 0px;
+    padding: 0px 0px;
+    box-sizing: border-box;
+    font-family: Kanit, sans-serif;
+}
+
+.navbar {
+    height: 100px;
+    background-color: transparent;
+}
+
+.a-list li {
+    list-style: none;
+}
+
+.fs-a {
+    font-size: large;
+}
+
+.main {
+    background: url("../media/campbell-3ZUsNJhi_Ik-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}
+
+.main-cover {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.37);
+}
+
+.m-a {
+    z-index: 99;
+}
+
+.m-a h2 {
+    font-size: 3rem;
+    color: white;
+}
+
+.m-a h1 {
+    font-size: 8rem;
+    color: rgb(245, 198, 69);
+}
+
+.btn-a {
+    background-color: rgb(245, 198, 69);
+    color: black;
+    padding: 10px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    transition: 0.3s all ease-in-out;
+    width: 35%;
+}
+
+.btn-a:hover {
+    background-color: rgb(248, 189, 27);
+}
+
+.divider {
+    display: block;
+    margin: auto;
+    width: 150px;
+    height: 5px;
+    background-color: black;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.divider-contact {
+    display: block;
+    margin: auto;
+    width: 150px;
+    height: 5px;
+    background-color: black;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.divider-faq {
+    display: block;
+    margin: auto;
+    width: 150px;
+    height: 5px;
+    background-color: black;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.req-a {
+    background-color: rgb(245, 198, 69);
+    color: black;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.3s all ease-in-out;
+
+}
+
+.req-a:hover {
+    background-color: rgb(248, 189, 27);
+}
+
+
+/* ######################## CONTACT ######################## */
+
+.btn-a2 {
+    background-color: rgb(245, 198, 69);
+    color: black;
+    padding: 10px 50px;
+    transition: 0.3s all ease-in-out;
+}
+
+.btn-a2:hover {
+    background-color: rgb(248, 189, 27);
+}
+
+.btn-f {
+    height: 70px;
+}
+
+
+/* ######################## CONTACT ######################## */
+
+.w-f {
+    width: 50%;
+}
+
+/* ######################## Detail Page ######################## */
+
+.det-btn {
+    background-color: rgb(245, 198, 69);
+    border: 4px solid rgb(151, 151, 151);
+    transition: 0.2s all ease-in-out;
+}
+.det-btn:hover {
+    background-color: rgb(248, 189, 27);
+}
+.det-btn-2{
+    background-color: transparent;
+    border: 4px solid rgb(151, 151, 151);
+    transition: 0.2s all ease-in-out;
+}
+.det-btn-2:hover{
+    color: rgb(53, 53, 53);
+}
+
+
+.slider {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    margin: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  
+  .slider::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .slider .slide {
+    display: flex;
+    position: absolute;
+    left: 0;
+    transition: 0.3s left ease-in-out;
+  }
+  
+  .slider .item {
+    margin-right: 10px;
+  }
+  
+  .slider .item:last-child {
+    margin-right: 0;
+  }
+  
+  .ctrl {
+    text-align: center;
+    margin-top: 5px;
+  }
+  
+  .ctrl-btn {
+    padding: 20px 20px;
+    min-width: 50px;
+    background: #fff;
+    border: none;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+  
+    position: absolute;
+    top: 50%;
+    margin-top: -27.5px;
+  }
+  
+  .ctrl-btn.pro-prev {
+    left: 0;
+  }
+  
+  .ctrl-btn.pro-next {
+    right: 0;
+  }
+  
+.btna{
+    background-color: rgb(245, 198, 69);
+    color: black;
+    padding: 15px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.3s all ease-in-out;
+    text-decoration: none;
+    width: 50%;
+    text-align: center;
+}
+
+.nav-active {
+    color: rgb(245, 198, 69);
+    border-bottom: 2px solid rgb(245, 198, 69);
+    
+    font-weight: bold;
+}
+
+.con-shoping{
+    text-decoration: none;
+    color: rgb(247, 187, 22);
+    font-size: larger;
+    transition: all .2s ease-in-out;
+}
+.con-shoping:hover{
+    color: black;
+}
+
+#credit-card{
+border: 3px solid #bbbbbb;
+    padding: 9px;
+    border-radius: 14px;
+    outline: none;
+   
+}
+.lb-card{
+    display: block;
+
+}

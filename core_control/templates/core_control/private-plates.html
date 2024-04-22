@@ -1,0 +1,246 @@
+{% extends "core_control/base/base.html" %}
+{% load static %}
+
+{% block optionalcssl %}
+<link rel="stylesheet" href="{% static 'css/crousals.css' %}">
+{% endblock optionalcssl %}
+{% block css %} 
+.row>*{
+    padding-right:0px;
+    padding-left:0px;
+}
+{% endblock css %}
+
+{% block title %}Privacy Plates{% endblock title %}
+
+{% block content %}
+
+
+
+    <div class="container">
+        <h1 class="text-center mt-4">EXPLORE OUR PRIVATE PLATES:</h1>
+        <p class="text-center mt-4 ps-4 pe-4">When purchasing, it may take up to 2 weeks to receive your new or
+            replacement DVLA V750 Certificate of Entitlement. After purchasing a registration from AqibPlates, we will
+            notify the DVLA to issue a new V750 Certificate using the information you provided during the purchase
+            process.</p>
+        <div class="divider-faq"></div>
+
+        <div class="container-fluid mb-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for p in product %}
+                <div class="col product-item ms-2 me-2 rounded-3" id="product-{{ p.id }}">
+                    <div class="product-img">
+                        {% if p.images.exists %}
+                        <img src="{{ p.images.first.image.url }}" alt="image"
+                            style="height: 200px; width: 300px; object-fit: fill;" class="rounded-3 img-fluid d-block mx-auto">
+                        {% else %}
+                        <img src="/path/to/placeholder/image.jpg" alt="Placeholder Image"
+                            class="img-fluid d-block mx-auto">
+                        {% endif %}
+                        <span class="heart-icon">
+                            <i class="far fa-heart"></i>
+                        </span>
+                        <div class="row btns w-100 mx-auto text-center">
+                            <button type="button" class="col-6 py-2 card-btn" data-product-id="{{ p.id }}">
+                                <i class="fa fa-cart-plus"></i> Add to Cart
+                            </button>
+
+                            <button type="button" class="col-6 py-2">
+                                <i class="fa fa-binoculars"></i> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-info p-3">
+                        <span class="product-type">{{ p.tag }}</span>
+                        <a href="/aqib-plaltes/private-plate/number-plate/{{ p.product_slug }}" class="d-block text-dark text-decoration-none py-2 product-name">{{ p.title }}</a>
+                        <span class="product-price">£ {{ p.orignal_price }}</span>
+                        
+                    </div>
+                </div>
+               {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+
+    {% block optionalcjsl %}
+    <script src="{% static 'js/scripts.js' %}"></script>
+    {% endblock optionalcjsl %}
+
+    {% block js %} 
+    
+    $(document).ready(function () {
+        $(".card-btn").click(function () {
+            var offcanvasRightcart = document.getElementById("rightCart");
+            var productId = $(this).data("product-id");
+            const authToken = localStorage.getItem("authtoken");
+    
+            // Ensure the token is available
+            if (!authToken) {
+                console.error("Authentication token not found in local storage.");
+                return;
+            }
+    
+            // Send AJAX request to backend
+            $.ajax({
+                url: '/aqib-plaltes/user/cart/',
+                type: 'POST',
+                headers: {
+                    "Authorization": `Bearer ${authToken}`,
+                    'X-CSRFToken': getCookie('csrftoken'),
+                },
+                data: { 'product_id': productId },
+                success: function (data) {
+                    // Assuming data contains product details
+                   
+                    var productDetails = {
+                        id: productId,
+                        image: data.first_image,
+                        name: data.title,
+                        price: data.orignal_price,
+                        slug: data.product_slug,
+                        quantity: 1,
+                        stock: data.stock_quantity
+                    };
+    
+                    // Retrieve existing cart items from localStorage or initialize an empty array
+                    var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    
+                    // Check if the product is already in the cart
+                    var existingItemIndex = cartItems.findIndex(item => item.id === productId);
+    
+                    if (existingItemIndex !== -1) {
+                        // Increment quantity
+                        cartItems[existingItemIndex].quantity += 1;
+    
+                        // Check if the new quantity exceeds the stock quantity
+                        if (cartItems[existingItemIndex].quantity > cartItems[existingItemIndex].stock) {
+                            console.error('Error: Quantity exceeds stock quantity');
+                            return; // Exit the function
+                        }
+                    } else {
+                        cartItems.push(productDetails);
+                    }
+    
+                    // Save updated cart items back to localStorage
+                    localStorage.setItem('cart', JSON.stringify(cartItems));
+    
+                    offcanvasRightcart.classList.add("show");
+                    updateCartUI();
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    // Handle error response if needed
+                    console.error('Error adding product to cart');
+                }
+            });
+        });
+    });
+    
+    
+            $(document).ready(function () {
+                $(".cls-btn").click(function () {
+                    const offcanvasRightcart = document.getElementById("rightCart");
+                    offcanvasRightcart.classList.remove("show");
+                    offcanvasRightcart.classList.add("hidden");
+                });
+            });
+    
+    
+            function updateCartUI(cards = localStorage.getItem("cart")) {
+        // Parse the cart items from string to object if it's a string
+        if (typeof cards === 'string') {
+            cards = JSON.parse(cards);
+        }
+    
+        // Assuming you have a container element where you want to display cart items
+        const cartContainer = document.getElementById("cartbody");
+    
+        // Clear the existing content in the container
+        cartContainer.innerHTML = '';
+    
+        // Initialize total price variable
+        let totalPrice = 0;
+    
+        // Loop through each cart item and create HTML elements to display them
+        cards.forEach((item, index) => {
+            const cardElement = document.createElement("div");
+            
+            cardElement.innerHTML = `
+                <div class="d-flex justify-content-between align-items-center rounded-2" style="border:2px solid #c3c3c3; margin-bottom:10px;">
+                    <div>
+                        <img src="${item.image}" alt="product-image" style="height:80px" width="100">
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="quantity">
+                            <h6 class="me-2 text-center">Qty</h6>
+                            <p class="mt-2 me-2 text-center">${item.quantity}</p>
+                        </div>
+                        <div class="price me-2">
+                            <h6 class="me-2 text-center">Price</h6>
+                            <p class="mt-2 me-2 text-center">${item.price * item.quantity}</p>
+                        </div>
+                        <button type="button" class="btn-close" aria-label="Close" onclick="rm_item(${index})"></button>
+                    </div>
+                </div>
+            `;
+    
+            // Update total price
+            totalPrice += item.price * item.quantity;
+    
+            cartContainer.appendChild(cardElement);
+        });
+    
+    // Append the checkout button
+    const checkoutButton = document.createElement("div");
+    checkoutButton.innerHTML = `
+        <div class="mt-2 mb-2">
+            <a href="#" class="w-100 btn btn-warning">Continue Checkout</a>
+        </div>
+    `;
+    
+    // Add CSS styles to the checkout button
+    checkoutButton.style.position = "fixed";
+    checkoutButton.style.width = "25%";
+    checkoutButton.style.bottom = "0px";
+    checkoutButton.style.zIndex = "100";
+    
+    
+        cartContainer.appendChild(checkoutButton);
+    }
+    
+    
+            function getCookie(name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+            function rm_item(index) {
+                // Retrieve cart items from localStorage
+                let cartItems = JSON.parse(localStorage.getItem("cart"));
+            
+                // Check if the index is valid
+                if (index >= 0 && index < cartItems.length) {
+                    // Remove the item at the specified index
+                    cartItems.splice(index, 1);
+            
+                    // Update localStorage with the modified cart items
+                    localStorage.setItem("cart", JSON.stringify(cartItems));
+            
+                    // Update the UI to reflect the changes
+                    updateCartUI(cartItems);
+                } else {
+                    console.error("Error: Invalid index specified.");
+                }
+            }    
+    {% endblock js %}

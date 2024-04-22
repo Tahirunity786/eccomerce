@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-utilities.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-utilities.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/crousals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/optimized.css' %}">
+
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="main-cover">
+            <header style="z-index: 100;">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-transparent text-light opt-nav">
+                    <div class="container m-auto justify-content-center">
+                        <ul class="d-flex justify-content-center align-items-center a-list" style="margin-bottom: 0px;">
+                            <li class="nav-item ms-4">
+                                <a class="nav-link local-link fs-a pb-2" aria-current="page" href="/"
+                                    id="link1">Home</a>
+                            </li>
+                            <li class="nav-item ms-4">
+                                <a class="nav-link local-link fs-a pb-2" aria-current="page"
+                                    href="/aqib-plaltes/private-plate/explore" id="link2">Private Plates</a>
+                            </li>
+
+                            <li class="nav-item ms-4">
+                                <a class="nav-link local-link fs-a pb-2" aria-current="page"
+                                    href="/aqib-plaltes/private-plate/faq" id="link4">Faq</a>
+                            </li>
+                            <li class="nav-item ms-4">
+                                <a class="nav-link local-link fs-a pb-2" aria-current="page"
+                                    href="/aqib-plaltes/private-plate/contact" id="link5">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <nav class="navbar navbar-expand-lg bg-transparent navbar-dark">
+                    <div class="container">
+                        <a class="navbar-brand local-link" href="/"><img
+                                src="{% static 'media/AqibPlates-updated_edited.webp' %}" alt="Logo"
+                                class="img-fluid"></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <div class="dropdown">
+                                        <a class="nav-link " type="button" data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                            <span id="profileicon" style="display: none;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                                                    fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                                                </svg>
+                                            </span>
+                                            <span id="profilepic">
+                                                <img src="" alt="profile pic" width="35" height="35"
+                                                    class="rounded-pill"
+                                                    style="object-fit: cover; object-position: center; margin-top: 5px;">
+                                            </span>
+                                        </a>
+                                        <ul id="dropdownMenu" class="dropdown-menu">
+
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" type="button" href="/aqib-plaltes/private-plate/cart">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                                            fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Main hero section -->
+            <main class="text-center m-a mt-5">
+                <h2 class="opt-text">Welcome to</h2>
+                <h1 class="opt-text-lg">Aqib Plates</h1>
+            </main>
+        </div>
+    </div>
+    <!-- Saction for request a plate -->
+    <section class="container-fluid" style="margin-top: 100px;">
+        <div class="container">
+            <div class="row my-5">
+                <h1 class="text-center">Private Plates</h1>
+                <p class="fw-light w-75 mx-auto text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Cumque est neque facilis debitis, repellat dolorem.</p>
+            </div>
+
+            <div class="row g-4 my-5 mx-auto owl-carousel owl-theme">
+
+                {% for product in products %}
+                <div class="col product-item mx-auto" id="product-{{ product.id }}">
+                    <div class="product-img">
+                        {% if product.images.exists %}
+                        <img src="{{ product.images.first.image.url }}" alt="image"
+                            style="height: 200px; width: 300px; object-fit: fill;" class="img-fluid d-block mx-auto">
+                        {% else %}
+                        <img src="/path/to/placeholder/image.jpg" alt="Placeholder Image"
+                            class="img-fluid d-block mx-auto">
+                        {% endif %}
+                        <span class="heart-icon">
+                            <i class="far fa-heart"></i>
+                        </span>
+                        <div class="row btns w-100 mx-auto text-center">
+                            <button type="button" class="col-6 py-2 card-btn" data-product-id="{{ product.id }}">
+                                <i class="fa fa-cart-plus"></i> Add to Cart
+                            </button>
+
+                            <button type="button" class="col-6 py-2">
+                                <i class="fa fa-binoculars"></i> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-info p-3">
+                        <span class="product-type">{{ product.tag }}</span>
+                        <a href="/aqib-plaltes/private-plate/number-plate/{{ product.product_slug }}" class="d-block text-dark text-decoration-none py-2 product-name">{{ product.title }}</a>
+                        <span class="product-price">£ {{ product.orignal_price }}</span>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- Button  for browser -->
+            <div class="mt-5 text-center">
+                <a href="/aqib-plaltes/private-plate/explore" class="btn-warning btn-lg m-auto btn rounded-2">Browse our Private Plates
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor"
+                        class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="container text-center" style="margin-bottom: 100px;">
+                <h1 class="mb-5 fs-2" style="font-weight: bold;">IMPORTANT INFORMATION:</h1>
+                <p class="mb-3 fs-5">The Driver & Vehicle Licensing Agency (DVLA) is a registered trademark, and
+                    AqibPlates has no affiliation with the DVLA or DVLA Personalised Registrations.</p>
+                <p class="mb-3 fs-5">AqibPlates holds direct ownership of all registrations, without any involvement of
+                    third parties.</p>
+                <p class="mb-3 fs-5">Every registration offered by "AQIBPLATES" is officially registered with the DVLA.
+                </p>
+            </div>
+        </div>
+
+    </section>
+    <div class="bg-dark text-light">
+        <div class="container">
+            <footer class="py-5">
+                <div class="row">
+
+                    <div class="col-md-5 offset-md-1 mb-3">
+
+                        <h5 class="fs-3">Address</h5>
+                        <p style="font-size: large;">128 City Road
+                            London
+                            EC1V 2NX
+                            United Kingdom.</p>
+
+
+                    </div>
+
+                    <div class="col-6 col-md-2 mb-3">
+                        <h5 class="fs-3">Section</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#" style="font-size: large; color: white;"
+                                    class="nav-link p-0 text-body-secondary">Home</a></li>
+                            <li class="nav-item mb-2"><a href="#" style="font-size: large; color: white;"
+                                    class="nav-link p-0 text-body-secondary">Features</a>
+                            </li>
+                            <li class="nav-item mb-2"><a href="#" style="font-size: large; color: white;"
+                                    class="nav-link p-0 text-body-secondary">Pricing</a>
+                            </li>
+                            <li class="nav-item mb-2"><a href="#" style="font-size: large; color: white;"
+                                    class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                            <li class="nav-item mb-2"><a href="#" style="font-size: large; color: white;"
+                                    class="nav-link p-0 text-body-secondary">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-2 mb-3">
+                        <div class="mb-4">
+                            <h5 class="fs-3">Email</h5>
+                            <p>aqibplates@gmail.com</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="fs-3">CALL US</h5>
+                            <p>+44 7342 253120</p>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+                <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                    <p>© 2024 Company, Inc. All rights reserved.</p>
+
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="rightCart"
+        aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h3 class="offcanvas-title" id="rightCart">My Cart</h3>
+            <button type="button" class="btn-close cls-btn" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+        </div>
+        <div class="offcanvas-body" id="cartbody">
+            <div class="container-fluid" id="probody">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div><img src="" alt="product-image"></div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="quantity">
+                            <h6 class="me-2 text-center">Qty</h6>
+                            <p class="mt-2 me-2 text-center">1</p>
+                        </div>
+                        <div class="price me-2">
+                            <h6 class="me-2 text-center">Price</h6>
+                            <p class="mt-2 me-2 text-center">500</p>
+                        </div>
+                        <button type="button" class="btn-close cls-btn" aria-label="Close" ></button>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            ...
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".local-link").each(function () {
+                var href = $(this).attr('href');
+                if (href === window.location.pathname) {
+                    $(this).addClass('active');
+                }
+            });
+
+            $(".local-link").click(function () {
+                $(".local-link").removeClass("nav-active");
+                $(this).addClass("nav-active");
+
+                var href = $(this).attr('href');
+                localStorage.setItem('activeNav', href);
+            });
+
+            var activeNav = localStorage.getItem('activeNav');
+            if (!activeNav) {
+                // Set default active link to the home page URL ("/")
+                $(".local-link").removeClass("nav-active");
+                $(".local-link[href='/']").addClass("nav-active");
+                localStorage.setItem('activeNav', '/');
+            } else {
+                $(".local-link").removeClass("nav-active");
+                $(".local-link[href='" + activeNav + "']").addClass("nav-active");
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var accessToken = localStorage.getItem("authtoken");
+            var dropdownMenu = document.getElementById("dropdownMenu");
+
+            if (accessToken) {
+                // Show menu for authenticated user
+                dropdownMenu.innerHTML = `
+                        <li><a id="profile-link" style='cursor:pointer;'  class="dropdown-item local-link">Profile</a></li>
+                        <li><a  style='cursor:pointer;' class="dropdown-item local-link" href="/aqib-plaltes/private-plate/faq">Help</a></li>
+                        <li><a id="logout" style='cursor:pointer;'  class="dropdown-item" >Logout</a></li>
+                   `;
+            } else {
+                // Show menu for non-authenticated user
+                dropdownMenu.innerHTML = `
+                <li><a class="dropdown-item " href="/aqib-plaltes/sigin">Register</a></li>
+                        <li><a class="dropdown-item " href="/aqib-plaltes/signup">Login</a></li>
+                    `;
+            }
+        });
+
+        $(document).ready(function () {
+            $("#profile-link").click(function (event) {
+                event.preventDefault(); // Prevent the default action of following the link
+
+                // Retrieve the authentication token from local storage
+                const authToken = localStorage.getItem("authtoken");
+
+                // Make sure the token is not null or empty
+                if (authToken) {
+                    // Construct the API URL with the authentication token
+                    const apiUrl = "/aqib-plaltes/user/profile";
+
+                    // Make the AJAX request
+                    $.ajax({
+                        url: '/aqib-plaltes/account/user/profile',
+                        type: "GET",
+                        headers: {
+                            "Authorization": `Bearer ${authToken}`
+                        },
+                        success: function (data) {
+                            // Redirect the user to the profile URL
+                            window.location.href = apiUrl;
+                            console.log(data)
+                        },
+                        error: function (xhr, textStatus, errorThrown) {
+                            console.error("Error:", textStatus, errorThrown);
+                        }
+                    });
+                } else {
+                    // If the authentication token is not found in local storage, log an error message
+                    console.error("Authentication token not found in local storage.");
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("#logout").click(function (event) {
+                event.preventDefault(); // Prevent the default action of following the link
+
+                localStorage.removeItem("authtoken");
+
+                window.location.href = "/aqib-plaltes/signup"; // Corrected URL
+            });
+        });
+
+        // Check if "profile" key is present in session storage
+        if (sessionStorage.getItem('userData')) {
+            // If user data is available in session storage
+            const userData = JSON.parse(sessionStorage.getItem('userData'));
+            if (userData.profile) {
+                // If profile image path is available in user data, show it
+                const profileImgElement = document.getElementById('profilepic').getElementsByTagName('img')[0];
+                profileImgElement.src = userData.profile;
+                // Hide the profile icon span
+                document.getElementById('profileicon').style.display = 'none';
+                // Show the profile image
+                profileImgElement.style.display = 'inline-block';
+            } else {
+                // If profile image path is not available, show the SVG icon
+                document.getElementById('profileicon').style.display = 'inline-block';
+                // Hide the profile image
+                const profileImgElement = document.getElementById('profilepic').getElementsByTagName('img')[0];
+                profileImgElement.style.display = 'none';
+            }
+        } else {
+            // If user data is not available in session storage, show the SVG icon
+            document.getElementById('profileicon').style.display = 'inline-block';
+            // Hide the profile image
+            const profileImgElement = document.getElementById('profilepic').getElementsByTagName('img')[0];
+            profileImgElement.style.display = 'none';
+        }
+
+
+    $(document).ready(function () {
+    $(".card-btn").click(function () {
+        var offcanvasRightcart = document.getElementById("rightCart");
+        var productId = $(this).data("product-id");
+        const authToken = localStorage.getItem("authtoken");
+
+        // Ensure the token is available
+        if (!authToken) {
+            console.error("Authentication token not found in local storage.");
+            return;
+        }
+
+        // Send AJAX request to backend
+        $.ajax({
+            url: '/aqib-plaltes/user/cart/',
+            type: 'POST',
+            headers: {
+                "Authorization": `Bearer ${authToken}`,
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+            data: { 'product_id': productId },
+            success: function (data) {
+                // Assuming data contains product details
+               
+                var productDetails = {
+                    id: productId,
+                    image: data.first_image,
+                    name: data.title,
+                    price: data.orignal_price,
+                    slug: data.product_slug,
+                    quantity: 1,
+                    stock: data.stock_quantity
+                };
+
+                // Retrieve existing cart items from localStorage or initialize an empty array
+                var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+                // Check if the product is already in the cart
+                var existingItemIndex = cartItems.findIndex(item => item.id === productId);
+
+                if (existingItemIndex !== -1) {
+                    // Increment quantity
+                    cartItems[existingItemIndex].quantity += 1;
+
+                    // Check if the new quantity exceeds the stock quantity
+                    if (cartItems[existingItemIndex].quantity > cartItems[existingItemIndex].stock) {
+                        console.error('Error: Quantity exceeds stock quantity');
+                        return; // Exit the function
+                    }
+                } else {
+                    cartItems.push(productDetails);
+                }
+
+                // Save updated cart items back to localStorage
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+
+                offcanvasRightcart.classList.add("show");
+                updateCartUI();
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                // Handle error response if needed
+                console.error('Error adding product to cart');
+            }
+        });
+    });
+});
+
+
+        $(document).ready(function () {
+            $(".cls-btn").click(function () {
+                const offcanvasRightcart = document.getElementById("rightCart");
+                offcanvasRightcart.classList.remove("show");
+                offcanvasRightcart.classList.add("hidden");
+            });
+        });
+
+
+        function updateCartUI(cards = localStorage.getItem("cart")) {
+    // Parse the cart items from string to object if it's a string
+    if (typeof cards === 'string') {
+        cards = JSON.parse(cards);
+    }
+
+    // Assuming you have a container element where you want to display cart items
+    const cartContainer = document.getElementById("cartbody");
+
+    // Clear the existing content in the container
+    cartContainer.innerHTML = '';
+
+    // Initialize total price variable
+    let totalPrice = 0;
+
+    // Loop through each cart item and create HTML elements to display them
+    cards.forEach((item, index) => {
+        const cardElement = document.createElement("div");
+        
+        cardElement.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center rounded-2" style="border:2px solid #c3c3c3; margin-bottom:10px;">
+                <div>
+                    <img src="${item.image}" alt="product-image" style="height:80px" width="100">
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="quantity">
+                        <h6 class="me-2 text-center">Qty</h6>
+                        <p class="mt-2 me-2 text-center">${item.quantity}</p>
+                    </div>
+                    <div class="price me-2">
+                        <h6 class="me-2 text-center">Price</h6>
+                        <p class="mt-2 me-2 text-center">£ ${item.price * item.quantity}</p>
+                    </div>
+                    <button type="button" class="btn-close" aria-label="Close" onclick="rm_item(${index})"></button>
+                </div>
+            </div>
+        `;
+
+        // Update total price
+        totalPrice += item.price * item.quantity;
+
+        cartContainer.appendChild(cardElement);
+    });
+
+// Append the checkout button
+const checkoutButton = document.createElement("div");
+checkoutButton.innerHTML = `
+    <div class="mt-2 mb-2">
+        <a href="#" class="w-100 btn btn-warning">Continue Checkout</a>
+    </div>
+`;
+
+// Add CSS styles to the checkout button
+checkoutButton.style.position = "fixed";
+checkoutButton.style.width = "25%";
+checkoutButton.style.bottom = "0px";
+checkoutButton.style.zIndex = "100";
+
+
+    cartContainer.appendChild(checkoutButton);
+}
+
+
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+
+        $(document).ready(function () {
+    // Retrieve the authentication token from local storage
+    const authToken = localStorage.getItem("authtoken");
+
+    // Ensure the token is available
+    if (!authToken) {
+        console.error("Authentication token not found in local storage.");
+        return;
+    }
+
+    // Perform AJAX request
+    $.ajax({
+        url: '/aqib-plaltes/user/get/profile',
+        type: "POST",
+        headers: {
+            "Authorization": `Bearer ${authToken}`
+        },
+        success: function (data) {
+            // Handle success response
+            console.log(data);
+            const locData = localStorage.getItem("userData");
+            if (!locData) {
+                sessionStorage.setItem('userData', JSON.stringify(data));
+            }
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.error("Error:", textStatus, errorThrown);
+        }
+    });
+});
+
+function rm_item(index) {
+    // Retrieve cart items from localStorage
+    let cartItems = JSON.parse(localStorage.getItem("cart"));
+
+    // Check if the index is valid
+    if (index >= 0 && index < cartItems.length) {
+        // Remove the item at the specified index
+        cartItems.splice(index, 1);
+
+        // Update localStorage with the modified cart items
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+
+        // Update the UI to reflect the changes
+        updateCartUI(cartItems);
+    } else {
+        console.error("Error: Invalid index specified.");
+    }
+}
+    </script>
+</body>
+
+</html>

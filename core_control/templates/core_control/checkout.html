@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-utilities.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-utilities.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+    <title>Checkout</title>
+</head>
+
+<body>
+
+    <header style="z-index: 100;">
+
+
+        <nav class="navbar navbar-expand-lg bg-transparent navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/"><img src="{% static 'media/AqibPlates-updated_edited.webp' %}"
+                        alt="Logo" class="img-fluid"> <span class="text-dark ms-3 mt-2 fs-5">Checkout</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="nav-link " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span id="profileicon" style="display: none;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+                                            fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                                        </svg>
+                                    </span>
+                                    <span id="profilepic">
+                                        <img src="" alt="profile pic" width="35" height="35" class="rounded-pill"
+                                            style="object-fit: cover; object-position: center; margin-top: 5px;">
+                                    </span>
+                                </a>
+                                <ul id="dropdownMenu" class="dropdown-menu">
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" type="button" href="/aqib-plaltes/private-plate/cart">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                                    class="bi bi-cart" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <hr>
+
+    <!-- Saction for request a plate -->
+    <section class="container" style="margin-top:50px;">
+
+        <div class="row">
+            <div class="col-lg-7 col-sm-12">
+                <div class="alert alert-warning" role="alert">
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <p style="margin:0px !important;"> You are logged in as <b id="useridentity"></b> </p>
+
+
+                        <a href="#" class="text-dark">Logout</a>
+                    </div>
+
+                </div>
+
+
+                <div class="mt-4 mb-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4>Customer details</h4>
+
+                        <a href="#" class="text-dark">Change details</a>
+                    </div>
+                    <div class="mt-3">
+                        <h6 id="usern"></h6>
+                        <h6 id="usere"></h6>
+                        <h6 id="userp"></h6>
+                    </div>
+                    <hr>
+                </div>
+
+                <div class="mt-4 mb-2">
+                    <h4>Payment method</h4>
+
+                    <div class="mt-3 mb-3 p-4 ps-5 pe-5 rounded-2" style="background-color: rgb(212, 212, 212);">
+
+
+                        <div class="credit-card-input mb-3">
+                            <label for="credit-card" class="form-label lb-card">Credit Card*</label>
+                            <input type="text" class="form-control form-control-lg" id="credit-card"
+                                pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4} [0-9]{3}" maxlength="19"
+                                placeholder="XXXX XXXX XXXX XXXX" oninput="formatAndValidateCreditCard(this)">
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-lg-6 col-sm-12">
+                                <label for="credit-card" class="form-label lb-card">Expiration date *</label>
+                                <input type="text" class="form-control form-control-lg" placeholder="MM / YYYY">
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+
+                                <label for="credit-card" class="form-label lb-card">Security code (CVV) *</label>
+                                <input type="text" class="form-control form-control-lg" maxlength="3" placeholder="XXX">
+                            </div>
+
+                        </div>
+                        <div class="w-100">
+                            <label for="credit-card" class="form-label lb-card">Cardholder name*</label>
+                            <input type="text" class="form-control form-control-lg">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-4 mb-4">
+                    <h4 class="mb-5">Billing Address</h4>
+                    <form action="#" method="post">
+                        <div class="mb-3">
+                            <label for="Input1" class="form-label">First name*</label>
+                            <input class="form-control" type="text" id="Input1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input2" class="form-label">Last name*</label>
+                            <input class="form-control" id="Input2" type="text" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input3" class="form-label">Email address*</label>
+                            <input type="email" class="form-control" id="Input3" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input4" class="form-label">Phone no*</label>
+                            <input type="tel" class="form-control" id="Input4" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input5" class="form-label">Country/Region*</label>
+                            <input class="form-control" id="Input5" type="text" placeholder="Disabled input"
+                                aria-label="Disabled input example" disabled value="UK" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="The service is only available in United Kingdom">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Input6" class="form-label">Address*</label>
+                            <input type="text" class="form-control" id="Input6" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input7" class="form-label">City*</label>
+                            <input type="text" class="form-control" id="Input7" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input8" class="form-label">State*</label>
+                            <input type="text" class="form-control" id="Input8" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="Input9" class="form-label">Zip / Postal code*</label>
+                            <input type="text" class="form-control" id="Input9" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <button class="w-100 btn btn-dark btn-lg">Save Billing Address</button>
+                        </div>
+                    </form>
+                </div>
+                <hr>
+                <div class="mt-3 mb-3">
+                    <h4 class="mb-4">Review & Place Order</h4>
+                    <p class="mb-4">Review the order details above, and place your order when you’re ready.</p>
+                    <div class="mb-4">
+                        <button class="w-100 btn btn-primary btn-lg" disabled>Place Order and Pay</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-sm-12">
+                <div class="rounded-2 p-2 ps-3 pe-3 pt-4 pb-4"
+                    style="background-color: rgb(233, 232, 232); position: sticky; top: 30px;">
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <h5 class="text-dark">Order Summary (<span id="itemquan2"></span>)</h5>
+                        <a href="/aqib-plaltes/private-plate/cart" class="text-dark">Edit Cart</a>
+                    </div>
+                    <hr>
+                    <div class="mt-3 mb-3">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-9">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <img id="productimage" alt="product image" width="50" height="50">
+                                        <div class="ms-4">
+                                            <h5 id="itemtitle"></h5>
+                                            <p id="itemquantity"></p>
+                                        </div>
+                                    </div>
+
+                                    <h5 id="itempriceunq"></h5>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 pt-3">
+                                <a class="text-dark" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    Show other <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
+                                        </svg></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body" id="cbody"></div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5>Subtotal</h5>
+                            <h5> £ <span id="totalItemsprice"></span>.00</h5>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5>VAT</h5>
+                            <h5> £ <span>0</span>.00</h5>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5>Total</h5>
+                            <h5> £ <span id="totalItemsprice2"></span>.00</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="bg-dark text-light">
+        <div class="container">
+            <footer class="py-5">
+                <div class="row">
+
+                    <div class="col-md-5 offset-md-1 mb-3">
+
+                        <h5 class="fs-3">Address</h5>
+                        <p style="font-size: large;">128 City Road
+                            London
+                            EC1V 2NX
+                            United Kingdom.</p>
+
+
+                    </div>
+
+                    <div class="col-6 col-md-2 mb-3">
+                        <h5 class="fs-3">Section</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#" style="font-size: large; color: white;"
+                                    class="nav-link p-0 text-body-secondary">Home</a></li>
+                            <li class="nav-item mb-2"><a href="#" style="font-size: large; color: white;"
+                                    class="nav-link p-0 text-body-secondary">Features</a>
+                            </li>
+                            <li class="nav-item mb-2"><a href="#" style="font-size: large; color: white;"
+                                    class="nav-link p-0 text-body-secondary">Pricing</a>
+                            </li>
+                            <li class="nav-item mb-2"><a href="#" style="font-size: large; color: white;"
+                                    class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                            <li class="nav-item mb-2"><a href="#" style="font-size: large; color: white;"
+                                    class="nav-link p-0 text-body-secondary">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-2 mb-3">
+                        <div class="mb-4">
+                            <h5 class="fs-3">Email</h5>
+                            <p>aqibplates@gmail.com</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="fs-3">CALL US</h5>
+                            <p>+44 7342 253120</p>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+                <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                    <p>© 2024 Company, Inc. All rights reserved.</p>
+
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $(".local-link").each(function () {
+                var href = $(this).attr('href');
+                if (href === window.location.pathname) {
+                    $(this).addClass('active');
+                }
+            });
+
+            $(".local-link").click(function () {
+                $(".local-link").removeClass("nav-active");
+                $(this).addClass("nav-active");
+
+                var href = $(this).attr('href');
+                localStorage.setItem('activeNav', href);
+            });
+
+            var activeNav = localStorage.getItem('activeNav');
+            if (!activeNav) {
+                // Set default active link to the home page URL ("/")
+                $(".local-link").removeClass("nav-active");
+                $(".local-link[href='/']").addClass("nav-active");
+                localStorage.setItem('activeNav', '/');
+            } else {
+                $(".local-link").removeClass("nav-active");
+                $(".local-link[href='" + activeNav + "']").addClass("nav-active");
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var accessToken = localStorage.getItem("authtoken");
+            var dropdownMenu = document.getElementById("dropdownMenu");
+
+            if (accessToken) {
+                // Show menu for authenticated user
+                dropdownMenu.innerHTML = `
+                        <li><a id="profile-link" style='cursor:pointer;'  class="dropdown-item local-link">Profile</a></li>
+                        <li><a  style='cursor:pointer;' class="dropdown-item local-link" href="/aqib-plaltes/private-plate/faq">Help</a></li>
+                        <li><a id="logout" style='cursor:pointer;'  class="dropdown-item" >Logout</a></li>
+                   `;
+            } else {
+                // Show menu for non-authenticated user
+                dropdownMenu.innerHTML = `
+                <li><a class="dropdown-item " href="/aqib-plaltes/sigin">Register</a></li>
+                        <li><a class="dropdown-item " href="/aqib-plaltes/signup">Login</a></li>
+                    `;
+            }
+        });
+
+        $(document).ready(function () {
+            $("#profile-link").click(function (event) {
+                event.preventDefault(); // Prevent the default action of following the link
+
+                // Retrieve the authentication token from local storage
+                const authToken = localStorage.getItem("authtoken");
+
+                // Make sure the token is not null or empty
+                if (authToken) {
+                    // Construct the API URL with the authentication token
+                    const apiUrl = "/aqib-plaltes/user/profile";
+
+                    // Make the AJAX request
+                    $.ajax({
+                        url: '/aqib-plaltes/account/user/profile',
+                        type: "GET",
+                        headers: {
+                            "Authorization": `Bearer ${authToken}`
+                        },
+                        success: function (data) {
+                            // Redirect the user to the profile URL
+                            window.location.href = apiUrl;
+
+                        },
+                        error: function (xhr, textStatus, errorThrown) {
+                            console.error("Error:", textStatus, errorThrown);
+                        }
+                    });
+                } else {
+                    // If the authentication token is not found in local storage, log an error message
+                    console.error("Authentication token not found in local storage.");
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("#logout").click(function (event) {
+                event.preventDefault(); // Prevent the default action of following the link
+
+                localStorage.removeItem("authtoken");
+
+                window.location.href = "/aqib-plaltes/signup"; // Corrected URL
+            });
+        });
+
+        // Check if "profile" key is present in session storage
+        if (sessionStorage.getItem('userData')) {
+            // If user data is available in session storage
+            const userData = JSON.parse(sessionStorage.getItem('userData'));
+            if (userData.profile) {
+                // If profile image path is available in user data, show it
+                const profileImgElement = document.getElementById('profilepic').getElementsByTagName('img')[0];
+                profileImgElement.src = userData.profile;
+                // Hide the profile icon span
+                document.getElementById('profileicon').style.display = 'none';
+                // Show the profile image
+                profileImgElement.style.display = 'inline-block';
+            } else {
+                // If profile image path is not available, show the SVG icon
+                document.getElementById('profileicon').style.display = 'inline-block';
+                // Hide the profile image
+                const profileImgElement = document.getElementById('profilepic').getElementsByTagName('img')[0];
+                profileImgElement.style.display = 'none';
+            }
+        } else {
+            // If user data is not available in session storage, show the SVG icon
+            document.getElementById('profileicon').style.display = 'inline-block';
+            // Hide the profile image
+            const profileImgElement = document.getElementById('profilepic').getElementsByTagName('img')[0];
+            profileImgElement.style.display = 'none';
+        }
+        function useridentityUpdater() {
+            const user = document.getElementById("useridentity");
+            const usere = document.getElementById("usere");
+            const usern = document.getElementById("usern");
+            const userp = document.getElementById("userp");
+            let userDataString = sessionStorage.getItem("userData");
+
+
+            if (userDataString) {
+                let userData = JSON.parse(userDataString);
+                user.innerText = userData.email;
+                usere.innerText = userData.email;
+                usern.innerText = userData.full_name;
+                userp.innerText = userData.mobile_number;
+
+            }
+        }
+
+        useridentityUpdater();
+
+
+        function formatCreditCard(input) {
+            let trimmedValue = input.value.replace(/\s+/g, ''); // Remove spaces
+            let formattedValue = '';
+            for (let i = 0; i < trimmedValue.length; i++) {
+                if (i % 4 === 0 && i !== 0) {
+                    formattedValue += ' '; // Add space every 4 characters
+                }
+                formattedValue += trimmedValue[i];
+            }
+            input.value = formattedValue;
+        }
+
+        function validateCreditCard(input) {
+            let cardNumber = input.value.replace(/\s+/g, ''); // Remove spaces
+
+            // Luhn Algorithm
+            let sum = 0;
+            let isSecondDigit = false;
+            for (let i = cardNumber.length - 1; i >= 0; i--) {
+                let digit = parseInt(cardNumber[i]);
+
+                if (isSecondDigit) {
+                    digit *= 2;
+                    if (digit > 9) {
+                        digit -= 9;
+                    }
+                }
+
+                sum += digit;
+                isSecondDigit = !isSecondDigit;
+            }
+
+            if (sum % 10 !== 0) {
+                return false;
+            }
+
+            if (cardNumber.length !== 19) {
+                return false;
+            }
+
+            return true;
+        }
+
+        function formatAndValidateCreditCard(input) {
+            let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+            input.value = value;
+            formatCreditCard(input);
+            if (!validateCreditCard(input)) {
+                input.setCustomValidity("Invalid credit card number");
+                input.reportValidity();
+            } else {
+                input.setCustomValidity('');
+            }
+        }
+
+        document.querySelector('.form-control-lg').addEventListener('input', function () {
+            formatAndValidateCreditCard(this);
+        });
+
+
+
+
+        // Function to parse cart items from string to object
+        function parseCartItems(cards) {
+            return typeof cards === 'string' ? JSON.parse(cards) : cards;
+        }
+
+        // Function to display the details of the first item
+        function displayFirstItem(firstItem) {
+            // Get elements by their IDs
+            const productImage = document.getElementById("productimage");
+            const itemTitle = document.getElementById("itemtitle");
+            const itemQuantity = document.getElementById("itemquantity");
+            const itemPrice = document.getElementById("itempriceunq");
+
+            // Set the content of elements based on the first item's details
+            productImage.src = firstItem.image;
+            itemTitle.innerText = firstItem.name;
+            itemQuantity.innerText = `Qty: ${firstItem.quantity}`;
+            itemPrice.innerText = `Price: ${firstItem.price}`;
+        }
+
+        // Function to create HTML elements for each item
+        function createItemElement(item) {
+            // Create container div and set its classes
+            const itemContainer = document.createElement("div");
+            itemContainer.classList.add("d-flex", "justify-content-between", "align-items-center");
+
+            // Create inner div for item details and set its classes
+            const itemDetails = document.createElement("div");
+            itemDetails.classList.add("d-flex", "justify-content-between", "align-items-center");
+
+            // Create image element, set its attributes, and set alt text
+            const itemImage = document.createElement("img");
+            itemImage.src = item.image;
+            itemImage.alt = "product image";
+            itemImage.width = 50;
+            itemImage.height = 50;
+
+            // Create div for item info and set its class
+            const itemInfo = document.createElement("div");
+            itemInfo.classList.add("ms-4");
+
+            // Create title element and set its text
+            const itemTitle = document.createElement("h5");
+            itemTitle.innerText = item.name;
+
+            // Create paragraph element for quantity and set its text
+            const itemQuantity = document.createElement("p");
+            itemQuantity.innerText = `Qty: ${item.quantity}`;
+
+            // Create price element and set its text
+            const itemPrice = document.createElement("h5");
+            itemPrice.innerText = `Price: ${item.price}`;
+
+            // Append elements to their respective parent elements
+            itemInfo.appendChild(itemTitle);
+            itemInfo.appendChild(itemQuantity);
+
+            itemDetails.appendChild(itemImage);
+            itemDetails.appendChild(itemInfo);
+
+            itemContainer.appendChild(itemDetails);
+            itemContainer.appendChild(itemPrice);
+
+            return itemContainer; // Return the created item container
+        }
+
+        function updateCartUI(cards = localStorage.getItem("cart")) {
+            cards = parseCartItems(cards); // Parse cart items from localStorage
+
+            const remainingItemsContainer = document.getElementById("cbody");
+            remainingItemsContainer.innerHTML = ''; // Clear existing content
+
+            let subtotalPrice = 0; // Variable to keep track of subtotal price
+
+            if (cards && cards.length > 0) {
+                let totalItems = 0; // Variable to keep track of total items in cart
+
+                // Display details of the first item separately
+                if (cards[0]) {
+                    const firstItem = cards[0];
+                    displayFirstItem(firstItem); // Display first item details
+                    totalItems += firstItem.quantity; // Update total items count
+                    subtotalPrice += firstItem.price * firstItem.quantity; // Update subtotal price
+                }
+
+                // Loop through remaining items and create HTML elements for each
+                cards.slice(1).forEach((item, index) => {
+                    totalItems += item.quantity; // Increment total items
+                    const itemElement = createItemElement(item); // Create HTML elements for item
+                    remainingItemsContainer.appendChild(itemElement); // Append item HTML to container
+                    subtotalPrice += item.price * item.quantity; // Update subtotal price
+                });
+
+                // Update total items count in the UI
+                const totalItemsText = document.getElementById("itemquan2");
+                totalItemsText.innerHTML = totalItems;
+            } else {
+                // If no items in the cart, display a message
+                const totalItemsText = document.getElementById("itemquan2");
+                totalItemsText.innerText = '0';
+
+                // Display message for no items in the cart
+                remainingItemsContainer.innerHTML = '<p>No items added to the cart.</p>';
+            }
+
+            // Update subtotal price in the UI
+            const subtotalPriceSpan = document.getElementById("totalItemsprice");
+            const totalItemsprice2 = document.getElementById("totalItemsprice2");
+            subtotalPriceSpan.innerText = subtotalPrice; // Set subtotal price with 2 decimal places
+            totalItemsprice2.innerText = subtotalPrice; // Set subtotal price with 2 decimal places
+        }
+
+        // Call the function to update the cart UI
+        updateCartUI();
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize the tooltip for the disabled input field
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+        });
+
+    </script>
+
+</html>

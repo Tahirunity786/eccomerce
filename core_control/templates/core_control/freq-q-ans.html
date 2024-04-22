@@ -1,0 +1,38 @@
+{% extends "core_control/base/base.html" %}
+
+{% block title %}Faqs{% endblock title %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <h1 class="text-center mt-4">FAQ</h1>
+        <div class="divider-faq"></div>
+        <div class="container-fluid p-5">
+            <div class="mb-3">
+                <button class="btn btn-light w-100 mb-2 text-start btn-f" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" >
+                    Question 1
+                    <span class="float-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-arrow-down-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        Some placeholder content for the collapse component. This panel is hidden by default but
+                        revealed
+                        when the user activates the relevant trigger.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endblock content %}
+
+    
+    {% block optionalcjsl %}
+    <script src="{% static 'js/scripts.js' %}"></script>
+    {% endblock optionalcjsl %}

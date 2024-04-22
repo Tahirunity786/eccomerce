@@ -1,0 +1,85 @@
+{% extends "core_control/base/base.html" %}
+{% load static %}
+{% block title %}Contact{% endblock title %}
+
+{% block content %}
+    <div class="bg-light p-4">
+        <h1 class="text-center">Contact us</h1>
+        <div class="divider-contact"></div>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-4 col-sm-12 mb-5">
+                    <div class="mb-3">
+                        <h4>Email:</h4>
+                        <p>aqibplates@gmail.com</p>
+                    </div>
+                    <div class="mb-3">
+                        <h4>Phone:</h4>
+                        <p>+44 7342 253120</p>
+                    </div>
+                    <div class="mb-5">
+                        <h4>Address:</h4>
+                        <p>128 City Road
+                            London
+                            EC1V 2NX
+                            United Kingdom</p>
+                    </div>
+                    
+                        <button class="btn-a2 rounded-2">Frequently asked questions</button>
+
+
+                </div>
+                <div class="col-lg-8 col-sm-12">
+                    <form action="#" method="post">
+                        <div class="row mb-2">
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class=" mb-3">
+                                    <label for="Input1" class="form-label">First name</label>
+                                    <input type="text" class="form-control" placeholder="First name"
+                                        aria-label="Username" id="Input1" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class=" mb-3">
+                                    <label for="Input2" class="form-label">Last name</label>
+                                    <input type="text" class="form-control" placeholder="Last name"
+                                        aria-label="Username" id="Input2" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class="mb-3">
+                                    <label for="Input3" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="Input3"
+                                        placeholder="yourmail@example.com">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <div class=" mb-3">
+                                    <label for="Input4" class="form-label">Subject</label>
+                                    <input type="text" class="form-control"
+                                        placeholder="eg: trouble to purchase a plate" aria-label="Username" id="Input4"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-xl-12 ">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+                                        style="resize: none;"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                        <button class="btn btn-dark rounded-2 pt-2 pb-2 ps-4 pe-4">Submit</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}

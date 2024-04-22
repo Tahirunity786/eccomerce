@@ -1,0 +1,105 @@
+<div class="modal fade" id="mod1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Profile</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="updateform">
+                    <div class="row p-4 align-items-center">
+                        <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center">
+                            <img src="https://dummyimage.com/150x150/000/fff" alt="image" name="pic"
+                                class="rounded-pill text-center" style="object-fit: cover;" width="150" height="150"
+                                id="image-preview">
+                            <div style="text-align: center; padding-top: 8px; height: 50px; width: 50px; background-color: whitesmoke; position: relative; top: 70px; left: -20px; "
+                                class="rounded-pill">
+                                <label for="prof">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        class="bi bi-camera-fill" viewBox="0 0 16 16">
+                                        <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
+                                        <path
+                                            d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0" />
+                                    </svg>
+                                </label>
+                            </div>
+                            <input type="file" id="prof" class="d-none" onchange="previewImage(event)">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <input class="form-control" type="text" id="upfullname" placeholder="Fullname">
+
+                        </div>
+                    </div>
+
+                    <div class="row p-4">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <input class="form-control" type="email" id="upemail" placeholder="abc@gmail.com"
+                                aria-label="default input example">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <input class="form-control" type="tel" id="upphno" placeholder="+1 xxxxxxxxx">
+                        </div>
+                    </div>
+                    <div class="row p-4">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="Gender" class="mb-2">Gender</label>
+
+                            <select class="form-select" id="upgend">
+                                <option value="Not Selected">Not Selected</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Not confirmed">Not confirmed</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="DOB" class="mb-2">Date of Birth</label>
+                            <input class="form-control" type="date" id="upDOB">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" id="updateme">Update</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="cngpas" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Change Password</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="updatepassofpre">
+                <div class="modal-body">
+                    <div class="row p-4">
+                        <div class="col-xl-12 mb-3">
+                            <input class="form-control" type="password" id="prepass" name="prepass" placeholder="Previous Password"
+                                aria-label="default input example">
+                        </div>
+                        <div class="col-xl-12 mb-3">
+                            <input class="form-control" type="password" id="newpass" name="newpass" placeholder="New Password"
+                                aria-label="default input example" onkeyup="checkPasswordStrength()">
+                            <span id="passwordStrength"></span>
+                        </div>
+                        <div class="col-xl-12 mb-3">
+                            <input class="form-control" type="password" id="confpass" name="confpass" placeholder="Confirm Password"
+                                onkeyup="checkPasswordsMatch()">
+                            <span id="passwordMatch"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary">Update</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,639 @@
+{% extends "core_control/base/base.html" %}
+{% load static %}
+{% block optionalcssl %}
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/crousals.css' %}">
+{% endblock optionalcssl %}
+
+{% block title %}Product Details{% endblock title %}
+
+
+{% block content %}
+<div class="container bg-light mt-4 p-4">
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-10 col-md-12 col-sm-12">
+                        <img src="{{ content.images.first.image.url }}" alt="" style="width: 100%; height: 45%;">
+                    </div>
+                    
+                    <div class="col-lg-2 col-md-12 col-sm-12">
+                        <div class="d-flex flex-column">
+                            {% for image in content.images.all %}
+                                {% if not forloop.first %}  <!-- Skip the first image -->
+                                    <div class="p-2">
+                                        <img src="{{ image.image.url }}" alt="img" style="width: 100%; height: 50% !important;">
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="container-fluid mt-5">
+                <h1 class="mb-3" style="font-weight: 900;">Details</h1>
+                <h6 style="font-weight: 700;">PLEASE NOTE:</h6>
+                <p>When purchasing, it may take up to 2 weeks to receive your new or replacement DVLA V750
+                    Certificate of Entitlement. After purchasing a registration from AqibPlates, we will notify the
+                    DVLA to issue a new V750 Certificate using the information you provided during the purchase
+                    process.
+                    <br>
+                    <br>
+                    This registration is valid on any vehicles registered after 1st August 1997.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 ">
+            <div class="mt-5">
+                <h2 class="mb-3 fs-1 text-center">{{content.title}}</h2>
+                <h3 class="mb-3 text-center">£ {{content.orignal_price}}.00</h3>
+                <div class="mb-4 mt-3">
+                    <p class="text-center">{{content.product_description}}</p>
+                </div>
+                <div class="mb-3 ps-5 pe-5">
+                    <button class="w-100 pt-2 pb-2 det-btn rounded-2"  id="cartbtn" data-product-id="{{ content.id }}">Add to Cart</button>
+                </div>
+                <div class="mb-3 ps-5 pe-5">
+                    <button class="w-100 pt-2 pb-2 det-btn-2 rounded-2">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section style="margin-top: 100px;">
+    <h4 class="text-center">You may also like:</h4>
+    <div class="divider"></div>
+
+    <div class="row g-4 my-5 mx-auto owl-carousel owl-theme">
+        <div class="col product-item mx-auto">
+            <div class="product-img">
+                <img src="{% static 'media/campbell-3ZUsNJhi_Ik-unsplash.jpg' %}" alt="" class="img-fluid d-block mx-auto">
+                <span class="heart-icon">
+                    <i class="far fa-heart"></i>
+                </span>
+                <div class="row btns w-100 mx-auto text-center">
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-cart-plus"></i> Add to Cart
+                    </button>
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-binoculars"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-info p-3">
+                <span class="product-type">Electronics & Accessories</span>
+                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">Apple - Apple Watch
+                    Series 3 White Sports Band</a>
+                <span class="product-price">$ 100.50</span>
+                <div class="rating d-flex mt-1">
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>(25 reviews)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col product-item mx-auto">
+            <div class="product-img">
+                <img src="{% static 'media/campbell-3ZUsNJhi_Ik-unsplash.jpg' %}" alt="" class="img-fluid d-block mx-auto">
+                <span class="heart-icon">
+                    <i class="far fa-heart"></i>
+                </span>
+                <div class="row btns w-100 mx-auto text-center">
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-cart-plus"></i> Add to Cart
+                    </button>
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-binoculars"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-info p-3">
+                <span class="product-type">Electronics & Accessories</span>
+                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">Apple - Apple Watch
+                    Series 3 White Sports Band</a>
+                <span class="product-price">$ 100.50</span>
+                <div class="rating d-flex mt-1">
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>(25 reviews)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col product-item mx-auto">
+            <div class="product-img">
+                <img src="{% static 'media/campbell-3ZUsNJhi_Ik-unsplash.jpg' %}" alt="" class="img-fluid d-block mx-auto">
+                <span class="heart-icon">
+                    <i class="far fa-heart"></i>
+                </span>
+                <div class="row btns w-100 mx-auto text-center">
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-cart-plus"></i> Add to Cart
+                    </button>
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-binoculars"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-info p-3">
+                <span class="product-type">Electronics & Accessories</span>
+                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">Apple - Apple Watch
+                    Series 3 White Sports Band</a>
+                <span class="product-price">$ 100.50</span>
+                <div class="rating d-flex mt-1">
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>(25 reviews)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col product-item mx-auto">
+            <div class="product-img">
+                <img src="{% static 'media/campbell-3ZUsNJhi_Ik-unsplash.jpg' %}" alt="" class="img-fluid d-block mx-auto">
+                <span class="heart-icon">
+                    <i class="far fa-heart"></i>
+                </span>
+                <div class="row btns w-100 mx-auto text-center">
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-cart-plus"></i> Add to Cart
+                    </button>
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-binoculars"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-info p-3">
+                <span class="product-type">Electronics & Accessories</span>
+                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">Apple - Apple Watch
+                    Series 3 White Sports Band</a>
+                <span class="product-price">$ 100.50</span>
+                <div class="rating d-flex mt-1">
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>(25 reviews)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col product-item mx-auto">
+            <div class="product-img">
+                <img src="{% static 'media/campbell-3ZUsNJhi_Ik-unsplash.jpg' %}" alt="" class="img-fluid d-block mx-auto">
+                <span class="heart-icon">
+                    <i class="far fa-heart"></i>
+                </span>
+                <div class="row btns w-100 mx-auto text-center">
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-cart-plus"></i> Add to Cart
+                    </button>
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-binoculars"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-info p-3">
+                <span class="product-type">Electronics & Accessories</span>
+                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">Apple - Apple Watch
+                    Series 3 White Sports Band</a>
+                <span class="product-price">$ 100.50</span>
+                <div class="rating d-flex mt-1">
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>(25 reviews)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col product-item mx-auto">
+            <div class="product-img">
+                <img src="{% static 'media/campbell-3ZUsNJhi_Ik-unsplash.jpg' %}" alt="" class="img-fluid d-block mx-auto">
+                <span class="heart-icon">
+                    <i class="far fa-heart"></i>
+                </span>
+                <div class="row btns w-100 mx-auto text-center">
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-cart-plus"></i> Add to Cart
+                    </button>
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-binoculars"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-info p-3">
+                <span class="product-type">Electronics & Accessories</span>
+                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">Apple - Apple Watch
+                    Series 3 White Sports Band</a>
+                <span class="product-price">$ 100.50</span>
+                <div class="rating d-flex mt-1">
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>(25 reviews)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col product-item mx-auto">
+            <div class="product-img">
+                <img src="{% static 'media/campbell-3ZUsNJhi_Ik-unsplash.jpg' %}" alt="" class="img-fluid d-block mx-auto">
+                <span class="heart-icon">
+                    <i class="far fa-heart"></i>
+                </span>
+                <div class="row btns w-100 mx-auto text-center">
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-cart-plus"></i> Add to Cart
+                    </button>
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-binoculars"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-info p-3">
+                <span class="product-type">Electronics & Accessories</span>
+                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">Apple - Apple Watch
+                    Series 3 White Sports Band</a>
+                <span class="product-price">$ 100.50</span>
+                <div class="rating d-flex mt-1">
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>(25 reviews)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col product-item mx-auto">
+            <div class="product-img">
+                <img src="{% static 'media/campbell-3ZUsNJhi_Ik-unsplash.jpg' %}" alt="" class="img-fluid d-block mx-auto">
+                <span class="heart-icon">
+                    <i class="far fa-heart"></i>
+                </span>
+                <div class="row btns w-100 mx-auto text-center">
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-cart-plus"></i> Add to Cart
+                    </button>
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-binoculars"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-info p-3">
+                <span class="product-type">Electronics & Accessories</span>
+                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">Apple - Apple Watch
+                    Series 3 White Sports Band</a>
+                <span class="product-price">$ 100.50</span>
+                <div class="rating d-flex mt-1">
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>(25 reviews)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col product-item mx-auto">
+            <div class="product-img">
+                <img src="{% static 'media/campbell-3ZUsNJhi_Ik-unsplash.jpg' %}" alt="" class="img-fluid d-block mx-auto">
+                <span class="heart-icon">
+                    <i class="far fa-heart"></i>
+                </span>
+                <div class="row btns w-100 mx-auto text-center">
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-cart-plus"></i> Add to Cart
+                    </button>
+                    <button type="button" class="col-6 py-2">
+                        <i class="fa fa-binoculars"></i> View
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-info p-3">
+                <span class="product-type">Electronics & Accessories</span>
+                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">Apple - Apple Watch
+                    Series 3 White Sports Band</a>
+                <span class="product-price">$ 100.50</span>
+                <div class="rating d-flex mt-1">
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span>(25 reviews)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+{% block js %}
+$('.owl-carousel').owlCarousel({
+loop: true,
+margin: 0,
+responsiveClass: true,
+
+responsive: {
+0: {
+items: 1,
+},
+768: {
+items: 2,
+},
+1100: {
+items: 3,
+},
+1400: {
+items: 4,
+loop: false,
+}
+}
+});
+
+$(document).ready(function () {
+    $("#cartbtn").click(function () {
+        var offcanvasRightcart = document.getElementById("rightCart");
+        var productId = $(this).data("product-id");
+        const authToken = localStorage.getItem("authtoken");
+
+        // Ensure the token is available
+        if (!authToken) {
+            console.error("Authentication token not found in local storage.");
+            return;
+        }
+
+        // Send AJAX request to backend
+        $.ajax({
+            url: '/aqib-plaltes/user/cart/',
+            type: 'POST',
+            headers: {
+                "Authorization": `Bearer ${authToken}`,
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+            data: { 'product_id': productId },
+            success: function (data) {
+                // Assuming data contains product details
+               
+                var productDetails = {
+                    id: productId,
+                    image: data.first_image,
+                    name: data.title,
+                    price: data.orignal_price,
+                    slug: data.product_slug,
+                    quantity: 1,
+                    stock: data.stock_quantity
+                };
+
+                // Retrieve existing cart items from localStorage or initialize an empty array
+                var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+                // Check if the product is already in the cart
+                var existingItemIndex = cartItems.findIndex(item => item.id === productId);
+
+                if (existingItemIndex !== -1) {
+                    // Increment quantity
+                    cartItems[existingItemIndex].quantity += 1;
+
+                    // Check if the new quantity exceeds the stock quantity
+                    if (cartItems[existingItemIndex].quantity > cartItems[existingItemIndex].stock) {
+                        console.error('Error: Quantity exceeds stock quantity');
+                        return; // Exit the function
+                    }
+                } else {
+                    cartItems.push(productDetails);
+                }
+
+                // Save updated cart items back to localStorage
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+
+                offcanvasRightcart.classList.add("show");
+                updateCartUI();
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                // Handle error response if needed
+                console.error('Error adding product to cart');
+            }
+        });
+    });
+});
+
+$(document).ready(function () {
+    $(".cls-btn").click(function () {
+        const offcanvasRightcart = document.getElementById("rightCart");
+        offcanvasRightcart.classList.remove("show");
+        offcanvasRightcart.classList.add("hidden");
+    });
+});
+
+
+function updateCartUI(cards = localStorage.getItem("cart")) {
+    // Parse the cart items from string to object if it's a string
+    if (typeof cards === 'string') {
+        cards = JSON.parse(cards);
+    }
+
+    // Assuming you have a container element where you want to display cart items
+    const cartContainer = document.getElementById("cartbody");
+
+    // Clear the existing content in the container
+    cartContainer.innerHTML = '';
+
+    // Initialize total price variable
+    let totalPrice = 0;
+
+    // Loop through each cart item and create HTML elements to display them
+    cards.forEach((item, index) => {
+        const cardElement = document.createElement("div");
+        
+        cardElement.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center rounded-2" style="border:2px solid #c3c3c3; margin-bottom:10px;">
+                <div>
+                    <img src="${item.image}" alt="product-image" style="height:80px" width="100">
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="quantity">
+                        <h6 class="me-2 text-center">Qty</h6>
+                        <p class="mt-2 me-2 text-center">${item.quantity}</p>
+                    </div>
+                    <div class="price me-2">
+                        <h6 class="me-2 text-center">Price</h6>
+                        <p class="mt-2 me-2 text-center">${item.price * item.quantity}</p>
+                    </div>
+                    <button type="button" class="btn-close" aria-label="Close" onclick="rm_item(${index})"></button>
+                </div>
+            </div>
+        `;
+
+        // Update total price
+        totalPrice += item.price * item.quantity;
+
+        cartContainer.appendChild(cardElement);
+    });
+
+    // Display total price
+    const totalPriceElement = document.createElement("div");
+    totalPriceElement.innerHTML = `
+        <div class="total-price mt-3">
+            <h6 class="text-end">Total Price: ${totalPrice}</h6>
+        </div>
+    `;
+    cartContainer.appendChild(totalPriceElement);
+}
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function rm_item(index) {
+    // Retrieve cart items from localStorage
+    let cartItems = JSON.parse(localStorage.getItem("cart"));
+
+    // Check if the index is valid
+    if (index >= 0 && index < cartItems.length) {
+        // Remove the item at the specified index
+        cartItems.splice(index, 1);
+
+        // Update localStorage with the modified cart items
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+
+        // Update the UI to reflect the changes
+        updateCartUI(cartItems);
+    } else {
+        console.error("Error: Invalid index specified.");
+    }
+}
+{% endblock js %}

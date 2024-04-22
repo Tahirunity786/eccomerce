@@ -1,0 +1,258 @@
+{% extends "core_control/base/base.html" %}
+{% load static %}
+{% block optionalcssl %}
+    <link rel="stylesheet" href="{% static 'css/crousals.css' %}">
+{% endblock optionalcssl %}
+
+{% block css %}
+
+.row>*{
+    padding-right: 0px; 
+    padding-left: 0px; 
+}
+
+{% endblock css %}
+
+
+{% block title %}Saved Items{% endblock title %}
+
+
+{% block content %}
+
+
+    <div class="container mt-5" style="margin-bottom: 100px;">
+        <div class="row mt-4 mb-4 ">
+            <div class="col-lg-3 col-md-3 col-sm-12 bg-light rounded-2 h-100 p-4 mb-4">
+                <h5 class="mb-3">Hello username!</h5>
+                <div class="mb-3">
+                    <span class="badge text-bg-success" id="verify"></span>
+                </div>
+                <div class="mb-3">
+                    <h5>Manage account</h5>
+                    <ul style="list-style: none;">
+                        <li><a href="/aqib-plaltes/user/profile" class="text-decoration-none text-dark">My profile</a></li>
+                        <li><a href="/aqib-plaltes/user/profile/address-book" class="text-decoration-none text-dark">My Address Book</a></li>
+                    </ul>
+                </div>
+                <div class="mb-4">
+                    <h5>Orders</h5>
+                    <ul style="list-style: none;">
+                        <li><a href="/aqib-plaltes/user/profile/orders" class="text-decoration-none text-dark">My Orders</a></li>
+                        <li><a href="/aqib-plaltes/user/profile/order-cancelation" class="text-decoration-none text-dark">My Cancellations</a></li>
+                        <li><a href="/aqib-plaltes/user/profile/order-return" class="text-decoration-none text-dark">My Returns</a></li>
+                    </ul>
+                </div>
+                <div class="mb-3">
+                    <a href="/aqib-plaltes/user/profile/items/saved" class="fs-4 text-decoration-none text-dark">Saved Items</a>
+
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-12 ps-4 pe-4">
+                <div class="mb-3">
+
+                    <h2>My Saved Items</h2>
+                    
+                </div>
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-md-3 g-4" style="padding-left: 0px; padding-right: 0px;">
+                        
+                        <div class="col product-item mx-auto">
+                            <div class="product-img">
+                                <img src="{% static 'media/campbell-3ZUsNJhi_Ik-unsplash.jpg' %}" alt="item"
+                                    class="img-fluid d-block mx-auto">
+                                <span class="heart-icon">
+                                    <i class="far fa-heart"></i>
+                                </span>
+                                <div class="row btns w-100 mx-auto text-center">
+                                    <button type="button" class="col-6 py-2">
+                                        <i class="fa fa-cart-plus"></i> Add to Cart
+                                    </button>
+                                    <button type="button" class="col-6 py-2">
+                                        <i class="fa fa-binoculars"></i> View
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="product-info p-3">
+                                <span class="product-type">Electronics & Accessories</span>
+                                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">Apple -
+                                    Apple Watch
+                                    Series 3 White Sports Band</a>
+                                <span class="product-price">$ 100.50</span>
+                                <div class="rating d-flex mt-1">
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>(25 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col product-item mx-auto">
+                            <div class="product-img">
+                                <img src="{% static 'media/campbell-3ZUsNJhi_Ik-unsplash.jpg' %}" alt="item"
+                                class="img-fluid d-block mx-auto">
+                                <span class="heart-icon">
+                                    <i class="far fa-heart"></i>
+                                </span>
+                                <div class="row btns w-100 mx-auto text-center">
+                                    <button type="button" class="col-6 py-2">
+                                        <i class="fa fa-cart-plus"></i> Add to Cart
+                                    </button>
+                                    <button type="button" class="col-6 py-2">
+                                        <i class="fa fa-binoculars"></i> View
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="product-info p-3">
+                                <span class="product-type">Electronics & Accessories</span>
+                                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">Apple -
+                                    Apple Watch
+                                    Series 3 White Sports Band</a>
+                                <span class="product-price">$ 100.50</span>
+                                <div class="rating d-flex mt-1">
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>(25 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col product-item mx-auto">
+                            <div class="product-img">
+                                <img src="{% static 'media/campbell-3ZUsNJhi_Ik-unsplash.jpg' %}" alt="item"
+                                    class="img-fluid d-block mx-auto">
+                                <span class="heart-icon">
+                                    <i class="far fa-heart"></i>
+                                </span>
+                                <div class="row btns w-100 mx-auto text-center">
+                                    <button type="button" class="col-6 py-2">
+                                        <i class="fa fa-cart-plus"></i> Add to Cart
+                                    </button>
+                                    <button type="button" class="col-6 py-2">
+                                        <i class="fa fa-binoculars"></i> View
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="product-info p-3">
+                                <span class="product-type">Electronics & Accessories</span>
+                                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">Apple -
+                                    Apple Watch
+                                    Series 3 White Sports Band</a>
+                                <span class="product-price">$ 100.50</span>
+                                <div class="rating d-flex mt-1">
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>(25 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col product-item mx-auto">
+                            <div class="product-img">
+                                <img src="{% static 'media/campbell-3ZUsNJhi_Ik-unsplash.jpg' %}" alt="item"
+                                    class="img-fluid d-block mx-auto">
+                                <span class="heart-icon">
+                                    <i class="far fa-heart"></i>
+                                </span>
+                                <div class="row btns w-100 mx-auto text-center">
+                                    <button type="button" class="col-6 py-2">
+                                        <i class="fa fa-cart-plus"></i> Add to Cart
+                                    </button>
+                                    <button type="button" class="col-6 py-2">
+                                        <i class="fa fa-binoculars"></i> View
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="product-info p-3">
+                                <span class="product-type">Electronics & Accessories</span>
+                                <a href="#" class="d-block text-dark text-decoration-none py-2 product-name">Apple -
+                                    Apple Watch
+                                    Series 3 White Sports Band</a>
+                                <span class="product-price">$ 100.50</span>
+                                <div class="rating d-flex mt-1">
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span>(25 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}
+
+    {% block js %}
+    $(document).ready(function () {
+        // Retrieve user data from session storage
+        var userData = JSON.parse(sessionStorage.getItem('userData'));
+        
+        if (userData) {
+            if (userData.is_verified) {
+                
+                $('#verify').removeClass('text-bg-danger').addClass('text-bg-success').text('Account verified');
+            } else {
+                
+                $('#verify').removeClass('text-bg-success').addClass('text-bg-danger').text('Verify your account');
+            }
+        }
+    });
+    {% endblock js %}
